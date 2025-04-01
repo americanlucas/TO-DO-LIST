@@ -22,10 +22,25 @@ function mostrarInput() {
     btnRemove.classList.add('btnRemove')
     btnRemove.onclick = () => item.remove()
 
+    const editar = document.createElement('a')
+    editar.innerHTML = 'Editar'
+    editar.classList.add('editar-nome')
+    editar.onclick = () => {
+        const pergunta = prompt('<1> Nome; <2> Quantidade')
+        if (parseInt(pergunta) == 1) {
+            const texto = prompt('Digite o Nome:')
+            nome.innerHTML = `${texto}`
+        } else if (parseInt(pergunta) == 2) {
+            const texto = prompt('Digite a Quantidade:')
+            qtd.innerHTML = `${texto}`
+        } else {
+            alert('Opção inválida!')
+        }
+    }
+
     item.appendChild(qtd)
     item.appendChild(nome)
-
-
+    item.appendChild(editar)
     item.appendChild(btnRemove)
 
     div.appendChild(item)
